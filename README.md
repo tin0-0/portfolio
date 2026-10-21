@@ -1,6 +1,6 @@
 # Tino's Portfolio
 
-**Live site:** (add Vercel URL later)
+**Live site:** (Vercel URL later)
 
 ## Who it's for
 Recruiters and hiring managers at agencies and startups looking for junior web developers, plus freelance clients.
