@@ -11,11 +11,12 @@ async function ProjectList() {
   return (
     <>
       {data?.map((project) => (
-        <div key={project.id} className="mt-6">
-          <h2 className="text-xl font-semibold">{project.title}</h2>
-          <p className="mt-2 text-gray-600">{project.summary}</p>
-        </div>
-      ))}
+  <div key={project.id} className="mt-6">
+    <h2 className="text-xl font-semibold">{project.title}</h2>
+    <p className="text-sm text-gray-500">{project.slug}</p>   
+    <p className="mt-2 text-gray-600">{project.summary}</p>
+  </div>
+))}
     </>
   );
 }
