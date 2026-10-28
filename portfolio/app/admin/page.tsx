@@ -2,6 +2,7 @@ import { Suspense } from "react";
 import { redirect } from "next/navigation";
 import { connection } from "next/server";
 import { createSupabaseServer } from "@/lib/supabase-server";
+import ProjectForm from "./project-form";
 
 async function AdminContent() {
   await connection();
@@ -15,7 +16,12 @@ async function AdminContent() {
     redirect("/login");
   }
 
-  return <p className="mt-4">You are logged in as {user.email}.</p>;
+  return (
+    <>
+      <p className="mt-4">You are logged in as {user.email}.</p>
+      <ProjectForm />
+    </>
+  );
 }
 
 export default function AdminPage() {
