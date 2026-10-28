@@ -19,6 +19,7 @@ export default function RootLayout({
           <Link href="/" className="font-semibold">Home</Link>
           <Link href="/projects">Projects</Link>
           <Link href="/contact">Contact</Link>
+          <Link href="/login">Login</Link> 
         </nav>
         <main className="mx-auto max-w-3xl p-6">{children}</main>
       </body>
