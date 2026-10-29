@@ -3,6 +3,7 @@ import { redirect } from "next/navigation";
 import { connection } from "next/server";
 import { createSupabaseServer } from "@/lib/supabase-server";
 import ProjectForm from "./project-form";
+import ProjectList from "./project-list";
 
 async function AdminContent() {
   await connection();
@@ -16,10 +17,16 @@ async function AdminContent() {
     redirect("/login");
   }
 
+  const { data: projects } = await supabase
+    .from("projects")
+    .select("*")
+    .order("created_at");
+
   return (
     <>
       <p className="mt-4">You are logged in as {user.email}.</p>
       <ProjectForm />
+      <ProjectList projects={projects ?? []} />
     </>
   );
 }
