@@ -43,3 +43,7 @@ No secrets are committed to this repo.
 
 ## AI use
 I used Claude as a tutor while building this: it explained concepts and reviewed my code, and I wrote and tested the code myself, [edit this to match what really happened].
+
+## Reflection (Milestone 2)
+
+My `projects` table in Supabase stores the title, slug, summary, links and sort order for each project, with Row Level Security enabled. I wrote two policies: one lets anyone read projects for the public page, and the other lets only my user ID insert, update and delete, and I turned off public signups so nobody else can make an account. To prove a visitor can't write, I switched the Supabase Table Editor to the `anon` role and tried to insert a row, and it failed with error 42501, "new row violates row-level security policy". I also checked that `/admin` redirects to `/login` when I'm not signed in.
