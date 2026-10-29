@@ -1,6 +1,6 @@
 # Tino's Portfolio
 
-**Live site:** [paste your Vercel URL here]
+**Live site:** [(https://portfolio-tino-eight.vercel.app/)]
 
 A personal portfolio site that shows my work to employers and freelance clients.
 
