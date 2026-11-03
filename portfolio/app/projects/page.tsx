@@ -1,8 +1,13 @@
 import { Suspense } from "react";
+import Link from "next/link";
 import { supabase } from "@/lib/supabase";
 
 async function ProjectList() {
-  const { data, error } = await supabase.from("projects").select("*");
+  const { data, error } = await supabase
+    .from("projects")
+    .select("*")
+    .order("sort_order")
+    .order("created_at");
 
   if (error) {
     return <p>Could not load projects.</p>;
@@ -11,12 +16,15 @@ async function ProjectList() {
   return (
     <>
       {data?.map((project) => (
-  <div key={project.id} className="mt-6">
-    <h2 className="text-xl font-semibold">{project.title}</h2>
-    <p className="text-sm text-gray-500">{project.slug}</p>   
-    <p className="mt-2 text-gray-600">{project.summary}</p>
-  </div>
-))}
+        <div key={project.id} className="mt-6">
+          <h2 className="text-xl font-semibold">
+            <Link href={`/projects/${project.slug}`} className="underline">
+              {project.title}
+            </Link>
+          </h2>
+          <p className="mt-2 text-gray-600">{project.summary}</p>
+        </div>
+      ))}
     </>
   );
 }
