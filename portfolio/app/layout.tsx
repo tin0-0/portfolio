@@ -16,10 +16,12 @@ export default function RootLayout({
     <html lang="en">
       <body>
         <nav className="flex gap-6 border-b p-4">
-          <Link href="/" className="font-semibold">Home</Link>
-          <Link href="/projects">Projects</Link>
-          <Link href="/contact">Contact</Link>
-          <Link href="/login">Login</Link> 
+            <Link href="/" className="font-semibold">Home</Link>
+            <Link href="/about">About</Link>
+            <Link href="/projects">Projects</Link>
+            <Link href="/skills">Skills</Link>
+            <Link href="/contact">Contact</Link>
+            <Link href="/login">Login</Link>
         </nav>
         <main className="mx-auto max-w-3xl p-6">{children}</main>
       </body>
