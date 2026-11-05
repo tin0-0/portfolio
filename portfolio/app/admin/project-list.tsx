@@ -3,27 +3,28 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabaseBrowser } from "@/lib/supabase-browser";
-
-type Project = {
-  id: string;
-  title: string;
-  slug: string;
-  summary: string;
-};
+import {
+  ProjectFields,
+  emptyValues,
+  fromProject,
+  toDbRow,
+  type Project,
+  type ProjectValues,
+} from "./project-fields";
 
 export default function ProjectList({ projects }: { projects: Project[] }) {
   const router = useRouter();
   const [editingId, setEditingId] = useState<string | null>(null);
-  const [title, setTitle] = useState("");
-  const [slug, setSlug] = useState("");
-  const [summary, setSummary] = useState("");
+  const [values, setValues] = useState<ProjectValues>(emptyValues);
   const [message, setMessage] = useState("");
+
+  function handleChange(name: keyof ProjectValues, value: string) {
+    setValues((prev) => ({ ...prev, [name]: value }));
+  }
 
   function startEdit(project: Project) {
     setEditingId(project.id);
-    setTitle(project.title);
-    setSlug(project.slug);
-    setSummary(project.summary);
+    setValues(fromProject(project));
     setMessage("");
   }
 
@@ -38,7 +39,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
 
     const { error } = await supabaseBrowser
       .from("projects")
-      .update({ title, slug, summary })
+      .update(toDbRow(values))
       .eq("id", editingId);
 
     if (error) {
@@ -77,34 +78,7 @@ export default function ProjectList({ projects }: { projects: Project[] }) {
             onSubmit={handleSave}
             className="mt-4 flex max-w-md flex-col gap-3 border-b pb-4"
           >
-            <label className="flex flex-col gap-1">
-              Title
-              <input
-                value={title}
-                onChange={(e) => setTitle(e.target.value)}
-                className="rounded border p-2"
-                required
-              />
-            </label>
-            <label className="flex flex-col gap-1">
-              Slug
-              <input
-                value={slug}
-                onChange={(e) => setSlug(e.target.value)}
-                className="rounded border p-2"
-                required
-              />
-            </label>
-            <label className="flex flex-col gap-1">
-              Summary
-              <textarea
-                value={summary}
-                onChange={(e) => setSummary(e.target.value)}
-                className="rounded border p-2"
-                rows={3}
-                required
-              />
-            </label>
+            <ProjectFields values={values} onChange={handleChange} />
             <div className="flex gap-3">
               <button type="submit" className="rounded bg-black px-3 py-1 text-white">
                 Save

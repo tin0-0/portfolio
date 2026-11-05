@@ -3,13 +3,21 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { supabaseBrowser } from "@/lib/supabase-browser";
+import {
+  ProjectFields,
+  emptyValues,
+  toDbRow,
+  type ProjectValues,
+} from "./project-fields";
 
 export default function ProjectForm() {
   const router = useRouter();
-  const [title, setTitle] = useState("");
-  const [slug, setSlug] = useState("");
-  const [summary, setSummary] = useState("");
+  const [values, setValues] = useState<ProjectValues>(emptyValues);
   const [message, setMessage] = useState("");
+
+  function handleChange(name: keyof ProjectValues, value: string) {
+    setValues((prev) => ({ ...prev, [name]: value }));
+  }
 
   async function handleSubmit(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
@@ -17,16 +25,14 @@ export default function ProjectForm() {
 
     const { error } = await supabaseBrowser
       .from("projects")
-      .insert({ title, slug, summary });
+      .insert(toDbRow(values));
 
     if (error) {
       setMessage(`Could not save: ${error.message}`);
       return;
     }
 
-    setTitle("");
-    setSlug("");
-    setSummary("");
+    setValues(emptyValues);
     setMessage("Project added!");
     router.refresh();
   }
@@ -34,34 +40,7 @@ export default function ProjectForm() {
   return (
     <form onSubmit={handleSubmit} className="mt-8 flex max-w-md flex-col gap-4">
       <h2 className="text-xl font-semibold">Add a project</h2>
-      <label className="flex flex-col gap-1">
-        Title
-        <input
-          value={title}
-          onChange={(e) => setTitle(e.target.value)}
-          className="rounded border p-2"
-          required
-        />
-      </label>
-      <label className="flex flex-col gap-1">
-        Slug (lowercase, hyphens)
-        <input
-          value={slug}
-          onChange={(e) => setSlug(e.target.value)}
-          className="rounded border p-2"
-          required
-        />
-      </label>
-      <label className="flex flex-col gap-1">
-        Summary
-        <textarea
-          value={summary}
-          onChange={(e) => setSummary(e.target.value)}
-          className="rounded border p-2"
-          rows={3}
-          required
-        />
-      </label>
+      <ProjectFields values={values} onChange={handleChange} />
       <button type="submit" className="rounded bg-black p-2 text-white">
         Add project
       </button>
