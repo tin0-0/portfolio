@@ -12,5 +12,5 @@ Medi-Clinic (the featured case study) was built with help from AI, starting from
 
 **Live URL:** (https://portfolio-tino-eight.vercel.app/)
 
-I wrote the Medi-Clinic case study for recruiters and hiring managers looking for a junior developer, so I focused on the problem it solves, what I actually built, and the stack I used. The Projects page now has three entries stored in Supabase, each with a screenshot, and the Skills page links every skill to evidence. One thing I cut was the card payment feature, which isn't working yet, so I listed it under "What I would do next" instead of showing it as finished. [One sentence in your own words about what you learned.]
+I wrote the Medi-Clinic case study for recruiters and hiring managers looking for a junior developer, so I focused on the problem it solves, what I actually built, and the stack I used. The Projects page now has three entries stored in Supabase, each with a screenshot, and the Skills page links every skill to evidence. One thing I cut was the card payment feature, which isn't working yet, so I listed it under "What I would do next" instead of showing it as finished.
 
