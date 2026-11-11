@@ -32,3 +32,15 @@ textarea:focus-visible {
   outline: 3px solid #1d4ed8;
   outline-offset: 2px;
 }
+
+@media (prefers-color-scheme: dark) {
+  .text-gray-500 { color: #a3a3a3; }
+  .text-gray-600 { color: #b8b8b8; }
+  .text-gray-700 { color: #cfcfcf; }
+
+  input,
+  textarea {
+    background-color: #171717;
+    color: #ededed;
+  }
+}
