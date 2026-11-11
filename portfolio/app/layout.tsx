@@ -15,15 +15,26 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body>
-        <nav className="flex gap-6 border-b p-4">
-            <Link href="/" className="font-semibold">Home</Link>
-            <Link href="/about">About</Link>
-            <Link href="/projects">Projects</Link>
-            <Link href="/skills">Skills</Link>
-            <Link href="/contact">Contact</Link>
-            <Link href="/login">Login</Link>
+        <a
+          href="#main"
+          className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:bg-white focus:p-2 focus:underline"
+        >
+          Skip to content
+        </a>
+        <nav
+          aria-label="Main"
+          className="flex flex-wrap gap-x-6 gap-y-1 border-b px-4 py-2"
+        >
+          <Link href="/" className="py-2 font-semibold">Home</Link>
+          <Link href="/about" className="py-2">About</Link>
+          <Link href="/projects" className="py-2">Projects</Link>
+          <Link href="/skills" className="py-2">Skills</Link>
+          <Link href="/contact" className="py-2">Contact</Link>
+          <Link href="/login" className="py-2">Login</Link>
         </nav>
-        <main className="mx-auto max-w-3xl p-6">{children}</main>
+        <main id="main" className="mx-auto max-w-3xl p-4 sm:p-6">
+          {children}
+        </main>
       </body>
     </html>
   );
