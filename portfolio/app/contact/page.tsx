@@ -1,3 +1,10 @@
+export const metadata = {
+  title: "Contact",
+  description:
+    "Send me a message about a project or a role, or download my CV.",
+};
+
+
 import ContactForm from "./contact-form";
 
 export default function ContactPage() {

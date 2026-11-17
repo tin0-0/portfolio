@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "About",
+  description:
+    "Who I am and the role I want: a junior front-end or full-stack developer based in Johannesburg.",
+};
+
 export default function AboutPage() {
 return (
     <section>

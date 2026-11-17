@@ -1,3 +1,9 @@
+export const metadata = {
+  title: "Skills",
+  description:
+    "The tools I work with, each one linked to a project that proves it.",
+};
+
 import Link from "next/link";
 
 const skills = [

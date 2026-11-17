@@ -97,6 +97,22 @@ async function ProjectDetail({
   );
 }
 
+export async function generateMetadata({
+  params,
+}: {
+  params: Promise<{ slug: string }>;
+}) {
+  const { slug } = await params;
+  const { data } = await supabase
+    .from("projects")
+    .select("title, summary")
+    .eq("slug", slug)
+    .single();
+
+  if (!data) return { title: "Project not found" };
+  return { title: data.title, description: data.summary };
+}
+
 export default function ProjectPage({
   params,
 }: {
