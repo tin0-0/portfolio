@@ -82,7 +82,14 @@ export default function RootLayout({
             >
               GitHub
             </a>
-            {/* Add your LinkedIn link here once your profile exists */}
+            <a
+  href="https://www.linkedin.com/in/tinotenda-mutenda"
+  className="link"
+  target="_blank"
+  rel="noopener noreferrer"
+>
+  LinkedIn
+</a>
           </div>
         </footer>
       </body>
