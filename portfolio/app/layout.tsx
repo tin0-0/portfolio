@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import Link from "next/link";
 import { Space_Grotesk, Bebas_Neue, DM_Mono } from "next/font/google";
 import "./globals.css";
+import Galaxy from "../components/Galaxy";
 
 const body = Space_Grotesk({ subsets: ["latin"], variable: "--f-body" });
 const display = Bebas_Neue({
@@ -44,54 +45,61 @@ export default function RootLayout({
       className={`${body.variable} ${display.variable} ${mono.variable}`}
     >
       <body>
-        <a
-          href="#main"
-          className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-white focus:p-2 focus:text-black focus:underline"
-        >
-          Skip to content
-        </a>
+        <Galaxy />
 
-        <header className="site-header">
-          <nav
-            aria-label="Main"
-            className="mx-auto flex max-w-4xl flex-wrap items-center gap-x-5 gap-y-1 px-4 py-2 sm:px-6"
+        <div className="relative z-10">
+          <a
+            href="#main"
+            className="sr-only focus:not-sr-only focus:absolute focus:left-2 focus:top-2 focus:z-50 focus:bg-white focus:p-2 focus:text-black focus:underline"
           >
-            <Link href="/" className="brand mr-auto">
-              TINO<span>.</span>
-            </Link>
-            <Link href="/about" className="nav-link">About</Link>
-            <Link href="/projects" className="nav-link">Projects</Link>
-            <Link href="/skills" className="nav-link">Skills</Link>
-            <Link href="/contact" className="nav-link">Contact</Link>
-            <Link href="/login" className="nav-link">Login</Link>
-          </nav>
-        </header>
+            Skip to content
+          </a>
 
-        <main id="main" className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12">
-          {children}
-        </main>
-
-        <footer className="site-footer">
-          <div className="mx-auto flex max-w-4xl flex-wrap gap-x-6 gap-y-2 px-4 py-8 text-sm sm:px-6">
-            <p className="muted mr-auto">© 2026 Tinotenda Mutenda</p>
-            <a
-              href="https://github.com/tin0-0"
-              className="link"
-              target="_blank"
-              rel="noopener noreferrer"
+          <header className="site-header">
+            <nav
+              aria-label="Main"
+              className="mx-auto flex max-w-4xl flex-wrap items-center gap-x-5 gap-y-1 px-4 py-2 sm:px-6"
             >
-              GitHub
-            </a>
-            <a
-  href="https://www.linkedin.com/in/tinotenda-mutenda"
-  className="link"
-  target="_blank"
-  rel="noopener noreferrer"
->
-  LinkedIn
-</a>
-          </div>
-        </footer>
+              <Link href="/" className="brand mr-auto">
+                TINO<span>.</span>
+              </Link>
+              <Link href="/about" className="nav-link">About</Link>
+              <Link href="/projects" className="nav-link">Projects</Link>
+              <Link href="/skills" className="nav-link">Skills</Link>
+              <Link href="/contact" className="nav-link">Contact</Link>
+              <Link href="/login" className="nav-link">Login</Link>
+            </nav>
+          </header>
+
+          <main
+            id="main"
+            className="mx-auto max-w-4xl px-4 py-8 sm:px-6 sm:py-12"
+          >
+            {children}
+          </main>
+
+          <footer className="site-footer">
+            <div className="mx-auto flex max-w-4xl flex-wrap gap-x-6 gap-y-2 px-4 py-8 text-sm sm:px-6">
+              <p className="muted mr-auto">© 2026 Tinotenda Mutenda</p>
+              <a
+                href="https://github.com/tin0-0"
+                className="link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                GitHub
+              </a>
+              <a
+                href="https://www.linkedin.com/in/tinotenda-mutenda"
+                className="link"
+                target="_blank"
+                rel="noopener noreferrer"
+              >
+                LinkedIn
+              </a>
+            </div>
+          </footer>
+        </div>
       </body>
     </html>
   );
