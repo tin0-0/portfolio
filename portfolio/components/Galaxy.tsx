@@ -7,7 +7,7 @@ export default function Galaxy() {
   useEffect(() => {
     const canvas = ref.current!;
     const ctx = canvas.getContext("2d")!;
-    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    const reduce = false; // TEMP: remove the check so it always animates
     let w = 0, h = 0, raf = 0;
     let mx = 0, my = 0; // mouse target, -0.5 to 0.5
     let sx = 0, sy = 0; // smoothed mouse
