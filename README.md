@@ -3,7 +3,7 @@
 A personal portfolio site for an IT Programming student and aspiring software developer in Johannesburg, South Africa. It shows my projects (each with a full case study), my skills, and a contact form, and it has a login for the admin side. It also includes work I have built for real clients.
 
 **Live site:** https://portfolio-tino-eight.vercel.app
-**Video walkthrough:** [PASTE UNLISTED VIDEO LINK]
+**Video walkthrough:** https://youtu.be/uOuGggmuPk4
 
 ## Built with
 
