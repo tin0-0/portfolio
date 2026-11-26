@@ -19,21 +19,20 @@ const mono = DM_Mono({
 export const metadata: Metadata = {
   metadataBase: new URL("https://portfolio-tino-eight.vercel.app"),
   title: {
-    default: "Tinotenda Mutenda | Junior Web Developer",
+    default: "Tinotenda Mutenda | Aspiring Software Developer",
     template: "%s | Tinotenda Mutenda",
   },
   description:
-    "Portfolio of Tinotenda Mutenda, a junior web developer in Johannesburg building with Next.js, Tailwind and Supabase.",
+    "Portfolio of Tinotenda Mutenda, an IT Programming student in Johannesburg building real-world websites with Next.js, Tailwind and Supabase.",
   openGraph: {
-    title: "Tinotenda Mutenda | Junior Web Developer",
+    title: "Tinotenda Mutenda | Aspiring Software Developer",
     description:
-      "Projects, skills and a contact form from a junior web developer in Johannesburg.",
+      "Projects, skills and a contact form from an IT Programming student in Johannesburg working toward a career in software development.",
     url: "/",
     siteName: "Tinotenda Mutenda",
     type: "website",
   },
 };
-
 export default function RootLayout({
   children,
 }: {

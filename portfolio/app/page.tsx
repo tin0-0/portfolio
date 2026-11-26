@@ -3,7 +3,7 @@ import Link from "next/link";
 export default function Home() {
   return (
     <section className="py-8 sm:py-16">
-      <p className="eyebrow">Junior web developer · Johannesburg</p>
+      <p className="eyebrow">Software developer in the making · Johannesburg</p>
 
       <h1 className="display mt-4 text-6xl sm:text-8xl">
         I build websites that work for <span className="gold">real businesses</span>.
@@ -11,8 +11,8 @@ export default function Home() {
 
       <p className="muted mt-6 max-w-xl text-lg">
         I&apos;m Tinotenda, an IT Programming student at Unicollege. I build with
-        Next.js, Tailwind and Supabase, and I&apos;m looking for a junior
-        front-end or full-stack role.
+        Next.js, Tailwind and Supabase, and I&apos;m working toward a career in
+        software development.
       </p>
 
       <div className="mt-8 flex flex-wrap gap-3">
