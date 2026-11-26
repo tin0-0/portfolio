@@ -7,6 +7,7 @@ const projectSlugs = [
   "medi-clinic",
   "impact-international-learning",
   "bk-autospares",
+  "off-script-tko",
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
